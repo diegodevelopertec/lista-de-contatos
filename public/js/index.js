@@ -1,63 +1,71 @@
 "use strict";
-var _a, _b, _c;
-//Variáveis
-var modalContato = document.querySelector('.modal-ctt');
-var containerMain = document.querySelector('.container-content');
-var ulListaContatos = document.querySelector('ul');
-var btnLixeira = document.querySelector('#btn-lixeira');
-var btnFavoritos = document.querySelector('#btn-favoritos');
-var listaContatos = [
-// {id:1,nome:'diego',tel:'44444',email:'body@gmail.com'},
+var el = function (e) { return document.querySelector(e); };
+var containerModal = el('.container-modal');
+var ButtonStartModal = el('.open-modal');
+var ButtonCancelModal = el('.btn-cancel');
+var containerMain = el('.content-list');
+var containerfavoritos = el('.container-favoritos');
+var ButtonAddNote = el('.btn-add');
+var list = [
+    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
 ];
-//Funções
-//Renderizar Lista de contatos
-listaContatos.forEach(function (item, index) {
-    ulListaContatos.innerHTML = '';
-    ulListaContatos.innerHTML += "\n        <li id=".concat(index + 1, ">\n        <div class=\"content-list\">\n         <img src=\"https://img.icons8.com/fluency/96/000000/gender-neutral-user.png\"/>\n                 <div id=\"nome-ctt\">\n                    \n                     <p>").concat(item.nome, "</p>\n                 \n                 </div>\n                 <div id=\"email-ctt\">\n                    ").concat(item.email, "\n                 </div>\n                 <div id=\"tel-ctt\">\n                    ").concat(item.tel, "\n                 </div>\n         </div>\n         <div class=\"icons-func\">\n                 <span><img id=\"btn-lixeira\"  src=\"https://img.icons8.com/ios-glyphs/90/000000/delete.png\" /></span>\n                 <span title=\"Favoritar\"><img id=\"btn-favoritos\" src=\"https://img.icons8.com/color/48/000000/hearts.png\"/></span>\n         </div>\n     </li>\n    \n    \n        ");
-});
-var openModal = function () {
-    //Abrir o Modal
-    if (modalContato.classList.contains('oculto')) {
-        modalContato.classList.remove('oculto');
-        modalContato.classList.add('visible');
-        containerMain.style.opacity = '0.5';
-    }
-};
-var setContato = function () {
-    //Adicionar um novo contato
-    var nome = document.querySelector('#cx-nome');
-    var email = document.querySelector('#cx-email');
-    var tel = document.querySelector('#cx-tel');
-    var condicaoVerify = nome.value !== '' && email.value !== '' && tel.value !== '';
-    if (condicaoVerify) {
-        var li = document.createElement('li');
-        li.innerHTML = "\n            <div class=\"content-list\">\n            <img src=\"https://img.icons8.com/fluency/96/000000/gender-neutral-user.png\"/>\n                    <div id=\"nome-ctt\">\n                       \n                        <p>".concat(nome.value, "</p>\n                    \n                    </div>\n                    <div id=\"email-ctt\">\n                      <a href=\"mailto:").concat(email.value, "\">").concat(email.value, "</a>\n                    </div>\n                    <div id=\"tel-ctt\">\n                      <a href='tel:").concat(tel.value, "'>").concat(tel.value, "</a>\n                    </div>\n            </div>\n            <div class=\"icons-func\">\n                    <a id=\"btn-lixeira\"><img   src=\"https://img.icons8.com/ios-glyphs/90/000000/delete.png\" /></a>\n                    <a id=\"btn-favoritos\" title=\"Favoritar\"><img  src=\"https://img.icons8.com/color/48/000000/hearts.png\"/></a>\n            </div>\n            \n            \n            ");
-        console.log('novo contato inserido');
-        ulListaContatos.appendChild(li);
+var setList = function () { return list.map(function (item, index) {
+    containerMain.innerHTML += "\n\n<div class=\"card-ctt\">\n<div class=\"profile\">\n        <img src=\"\" id='img-profile' alt=\"\">\n        <span class=\"name-ctt\">".concat(item.nome, "</span>\n</div>\n<div class=\"data\">\n    <a  href='mailto:").concat(item.email, "' class=\"email-data\"> <img src=\"https://img.icons8.com/doodle/48/000000/newsletter.png\"/></a>\n    <a  href='tel:").concat(item.tel, " ' class=\"tel-data\"><img src=\"https://img.icons8.com/material-outlined/24/000000/call-female.png\"/></a>\n</div>\n<div class=\"icons\">\n    <a  href=' ' class=\"email-data\"><img src=\"https://img.icons8.com/ios-glyphs/30/000000/delete.png\"/></a>\n    <a  href=' ' class=\"email-data\"> <img src=\"https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png\"/> </a>\n</div>\n</div>\n\n\n");
+}); };
+setList();
+function addNote() {
+    var nome = el('.nome');
+    var email = el('.email');
+    var tel = el('.tel');
+    var condicao = nome.value !== '' && email.value !== '' && tel.value !== '';
+    if (condicao) {
+        list.push({
+            id: list.length + 1,
+            nome: nome.value,
+            email: email.value,
+            tel: tel.value
+        });
+        console.log(list);
         nome.value = '';
         email.value = '';
         tel.value = '';
-        modalContato.classList.remove('visible');
-        modalContato.classList.add('oculto');
+        containerModal.classList.remove('visivel');
+        containerModal.classList.add('oculto');
         containerMain.style.opacity = '1.0';
+        setList();
     }
     else {
-        alert('Algum campo não preenchido');
+        alert('Preencha todos os campos');
+    }
+}
+var openModal = function () {
+    if (containerModal.classList.contains('oculto')) {
+        containerModal.classList.remove('oculto');
+        containerModal.classList.add('visivel');
+        containerMain.style.opacity = '0.5';
     }
 };
-var deleteContato = function (event) {
-    alert('hello');
-};
 var closeModal = function () {
-    //fechar o Modal
-    if (modalContato.classList.contains('visible')) {
-        modalContato.classList.remove('visible');
-        modalContato.classList.add('oculto');
+    if (containerModal.classList.contains('visivel')) {
+        containerModal.classList.remove('visivel');
+        containerModal.classList.add('oculto');
         containerMain.style.opacity = '1.0';
     }
 };
-//Eventos
-(_a = document.querySelector('#cancel-note')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', closeModal);
-(_b = document.querySelector('#add-note')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', setContato);
-(_c = document.querySelector('.start-modal')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', openModal);
-btnLixeira.addEventListener('click', deleteContato);
+ButtonStartModal.addEventListener('click', openModal);
+ButtonCancelModal.addEventListener('click', closeModal);
+ButtonAddNote.addEventListener('click', addNote);

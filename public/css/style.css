@@ -1,265 +1,190 @@
+
 *{
-    box-sizing: border-box;
-    margin:0;
-    padding: 0;
-    font-family:sans-serif;
-    list-style: none;
     text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
-
 .container{
-    grid-template-areas: ' header'
-                         'main';       
-    height: 100%;
+ display: block;
 }
-
-
 header{
+    grid-area: header;
     padding: 10px;
-    display: flex;
- align-items: center;
-    grid-area:header;
-    background-color: rgb(27, 77, 146);
-    color: #EEE;
+    background-color: rgb(0, 134, 123);
 }
 
-header img{
-    height: 30px;
-
+.content-main{
+   display: flex;
+    justify-content: center;
 }
-/** estilos das anotacoes **/
 main{
-    height: 100%;
-    grid-area:main;
- display: flex;
-  align-items: center;
-    flex-direction: column;
-}
-
-.container-content{
+    
+    width: 80%;
+    height: 100vh;
     background-color: #eee;
-     width: 90%;
-   padding:  4%;
-    display: flex;
-    height:100%;
-    min-height: 100vh;
-   display:flex;
-    flex-wrap: wrap;
-    font-size: 13px;
-    
-    
 }
-
-
-.container-content ul{
-    display: flex;
-   flex-direction: column;
-   width:100%;
-}
-
-ul li{
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(83, 83, 235);
-    padding: 2%;
-    height: 80px;
-}
-
-ul li div,img{
-    margin-right: 27px;
-}
-
-.content-list{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.conteiner-content ul li #profile{
-    display: inline;
-}
-
-ul li:hover{
-    background-color: rgb(180, 180, 180);
-}
-ul li img{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background-color: #eee;
-    padding: 10px;
-}
-
-.icons-func{
-    display: flex;
-    justify-content: flex-start;
-}
-
-.icons-func a{
-    margin-right: 10px;
-}
-
-/** estilos do modal **/
-
-.modal-ctt{
-    width: 50%;
-    min-width: 240px;
-    background-color: rgb(170, 199, 200);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgb(67, 67, 176);
-   
-}
-
-.oculto{
-    display: none;
-}
-.visible{
-    display: block;
-}
-#container-modal{
-    padding: 10px 0px;
-    width: 90%;
-    margin-top:5%;
-    position: fixed;
-  justify-content: center;
-  display:flex;
-  
-    
-    
-}
-
-
-.cx-ctt{
-    display: flex;
-    margin-top: 10px;
-}
-
-.cx-ctt span{
-   width: 60px;
-    background-color: #eeee;
-    padding: 2%;
-    text-align: center;
-}
-.cx-ctt input{
-    flex: 1;
+main .container-favoritos{
+    background-color: rgba(99, 200, 185, 0.645);
+    min-height: 200px;
     padding: 2%;
 }
 
-.modal-ctt .cx-buttons{
-    display: flex;
-}
-.modal-ctt .cx-buttons button{
-    flex: 1;
+main .content-list{
     padding: 10px;
-    margin: 10px 5px;
-    border: none;
-    color: #FFF;
-    border-radius: 10PX;
 }
 
-.modal-ctt .cx-buttons #cancel-note{
-background-color: rgb(213, 64, 64);
-}
-
-.modal-ctt .cx-buttons #cancel-note:hover{
-    background-color: rgb(172, 27, 27); 
-    cursor: pointer;
-}
-.modal-ctt .cx-buttons #add-note{
-    background-color: rgb(87, 224, 167)
-}
-.modal-ctt .cx-buttons #add-note:hover{
-    background-color: rgb(44, 203, 44);
-    cursor:pointer;
-}
-
-
-
-.container-favoritos{
-   display: block;
-   background-color: blue;
-    width: 100%;
+ .card-ctt{
     padding: 1%;
+    background-color: rgb(102, 166, 167);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
 }
-
-
-.start-modal{
+.card-ctt .profile img{
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    background-color: rgb(27, 77, 146);
+    margin-right: 10px;
+}
+
+.card-ctt .profile,.data,.icons{
+    display: flex;
+    align-items:center;
+}
+.card-ctt .data a{
+    margin-left: 10px;
+}
+.card-ctt .data a img{
+    width: 30px;
+}
+.content-list .icons a{
+  
+   margin-left: 10px;
+}
+.card-ctt .icons a img{
+    width: 30px;
+}
+
+main .open-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 100%;
     position: fixed;
     top: 50vh;
-    left: 88%;
-    margin-right: 20px;
-    border: none;
-    color: #EEE;
- 
-   
+    left: 80vw;
+    background-color: rgb(0, 134, 123);
 }
 
-.start-modal:hover{
-    background-color: rgb(20, 84, 174);
+main .open-modal:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 0px rgb(67, 111, 85);
+}
+
+/*Modal*/
+
+.visivel{
+    display: flex;
+}
+.oculto{
+    display: none;
+}
+
+main .container-modal{
+  
+    justify-content: center;
+    align-items: center;
+}
+
+main .container-modal .modal{
+    display: block;
+    box-shadow: 0px 0px 10px #eee;
+    position: fixed;
+    top: 10vh;
+    border-radius: 10px;
+    margin: 5%;
+    min-width: 50vw;
+   max-width: 600px;
+   padding: 2%;
+    background-color: rgb(63, 155, 147);
+}
+
+.modal #cx-file{
+   margin: 2%;
+   display: flex;
+   justify-content: center;
+}
+#cx-file input{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+   background-color: #eee ;
+     font-size: 0;
+}
+
+.container-modal .modal #cx-inputs {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 2%;
+    
+}
+.container-modal .modal #cx-inputs span{
+    padding:2%;
+    background-color: #eee;
+    text-align: center;
+    width: auto;
+
+}
+.container-modal .modal #cx-inputs input{
+    width: 100%;
+}
+
+.container-modal .modal #cx-buttons{
+    display: flex;
+    padding:2%;
    
 }
-/**responsividade **/
-@media screen and (max-width:600px){
-    ul{
-        align-items: center;
+.container-modal .modal #cx-buttons button{
+    flex: 1;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding:2%;
+    border: none;
+    border-radius: 15px;
+}
+.container-modal .modal #cx-buttons .btn-cancel{
+background-color: rgb(136, 43, 43);
+}
+.container-modal .modal #cx-buttons .btn-cancel:hover{
+    background-color: rgb(130, 10, 10);
+    cursor: pointer;
     }
-  
-ul li{
-    flex-direction: column;
-    width: 60%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 10px rgb(92, 92, 246);
-    margin-top: 7%;
-}
-ul li:hover{
-    background-color: none;
-}
-ul li div,img,a{
-    margin-top: 10px;
-    margin-right: 0;
-}
-ul li .icons-func imf{
-   flex: 1;
+.container-modal .modal #cx-buttons  .btn-add{
+background-color: green;
 }
 
-
-.content-list{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-    .container-content{
-        width: 100%;
-     flex-direction: column;
-justify-content:flex-start;
-display: block;
-     
+.container-modal .modal #cx-buttons  .btn-add:hover{
+    background-color: rgb(38, 159, 38);
+    cursor: pointer;
     }
-    .start-modal{
-        left: 85%;
-        top: 80%;
-       
-    }
-  
 
-  
+@media screen and (max-width:900px){
+    main{
+        width: 100vw;
+    }
+    
 }
-
-@media screen and (max-width:390px){
-    .start-modal{
-        left: 78%;
-        top: 80%;
-       
-    }
+@media screen  and (max-width:300px){
+    
+   .card-ctt{
+   
+    font-size: 12px;
+   }
+   .cx-ctt img{
+    width: 20px;
+   }
 }

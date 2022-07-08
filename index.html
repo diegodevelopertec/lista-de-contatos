@@ -9,90 +9,88 @@
 </head>
 <body>
     <div class="container">
-
         <header>
-          <span>Contatos</span>
-          <span><img src="https://img.icons8.com/officel/160/000000/contacts.png"/></span>
+           contatos
         </header>
-        
-        <main>
-        
-           
-          
-          <div class="container-content">
-            <div class="container-favoritos">
-                <h3>Favoritos</h3>
-            </div>
-         
-
-
-            <ul class="list-container">
-               <!-- <li>
-                   <div class="content-list">
-                    <img src="https://img.icons8.com/fluency/96/000000/gender-neutral-user.png"/>
-                            <div id="nome-ctt">
-                               
-                                <p>fulano</p>
-                            
-                            </div>
-                            <div id="email-ctt">
-                                email
-                            </div>
-                            <div id="tel-ctt">
-                                telefone
-                            </div>
-                    </div>
-                    <div class="icons-func">
-                            <span><img src="https://img.icons8.com/ios-glyphs/90/000000/delete.png"/></span>
-                            <span title="Favoritar"><img src="https://img.icons8.com/color/48/000000/hearts.png"/></span>
-                    </div>
-                </li>
-            -->
+        <div class="content-main">
+            <main>
               
-               
-
-            </ul>
-
-                <button title="criar nova anotação" class="start-modal">
-                    +
-                </button>
-
-              
-            </div>
-            <div id="container-modal"  >
-                <div class="modal-ctt oculto">
-                        <form action="" method="post" >
-                            <div class="img-perfil">
-                              <input type="file">
-                            </div>
-                            <div class="cx-ctt">
-                                <span>Nome</span>
-                                <input type="text" id="cx-nome">
-                            </div>
-                            <div class="cx-ctt">
-                                <span>tel</span>
-                                <input type="text" id="cx-tel">
-                            </div>
-                            <div class="cx-ctt">
-                                <span>email</span>
-                                <input type="email" id="cx-email">
-                            </div>
-                          
-                        </form>
-                 <div class="cx-buttons">
-                     <button id="cancel-note">cancelar</button>
-                     <button id="add-note" >salvar</button>
-                 </div>
- 
+                <div class="container-favoritos">
+                    <div class="card-ctt">
+                        <div class="profile">
+                                <img src="" id='img=profile ' alt="">
+                                <span class="name-ctt">Nome</span>
+                        </div>
+                        <div class="data">
+                            <a  href=' ' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
+                            <a  href=' ' class="tel-data"><img src="https://img.icons8.com/material-outlined/24/000000/call-female.png"/></a>
+                        </div>
+                        <div class="icons">
+                            <a  href=' ' class="email-data"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"/></a>
+                            <a  href=' ' class="email-data"> <img src="https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png"/> </a>
+                        </div>
+           </div>
                 </div>
-             </div>
-            
-        </main>
+                    <div class="content-list">
+                           
+                            <div class="card-ctt">
+                                <div class="profile">
+                                        <img src="" id='img-profile ' alt="">
+                                        <span class="name-ctt">Nome</span>
+                                </div>
+                                <div class="data">
+                                    <a  href=' ' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
+                                    <a  href=' ' class="tel-data"><img src="https://img.icons8.com/material-outlined/24/000000/call-female.png"/></a>
+                                </div>
+                                <div class="icons">
+                                    <a  href=' ' class="email-data"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"/></a>
+                                    <a  href=' ' class="email-data"> <img src="https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png"/> </a>
+                                </div>
+                </div>
+                
+   
+                            <button class="open-modal">
+                                +
+                            </button>
+                        </div>
+
+                  
+                    <div class="container-modal oculto">
+                        <div class="modal">
+                            <div id="cx-file">
+                                <input type="file"  title="Selecione uma foto de perfil" name="" class="img-file">
+                            </div>
+                                <div id="cx-inputs">
+                                    <span class="title">Nome</span>
+                                <input type="text" name="nome" class="nome">
+                                </div>
+    
+                                <div  id="cx-inputs">
+                                    <span class="title">Email</span>
+                                    <input type="email" class="email"  name="email">
+                                </div>
+    
+                                <div id="cx-inputs">
+                                    <span class="title">Tel</span>
+                                    <input type="text" class="tel" name="telefone">
+                                </div>
+    
+                                <div id="cx-buttons">
+                                    <button class="btn-cancel">cancelar</button> 
+                                    <button class="btn-add">adicionar</button>
+                                </div>
+                        </div>
+
+              
+                </div>
+               
+            </main>
+        </div>
 
 
     </div>
     
-  
-    <script type="module" src="/public/js/index.js"></script>
+
+    <script src="/public/js/index.js"></script>
 </body>
 </html>

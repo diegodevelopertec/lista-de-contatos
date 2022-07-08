@@ -2,11 +2,11 @@ let el=(e:string)=>document.querySelector(e) as HTMLElement
 let containerModal=el('.container-modal')
 let ButtonStartModal=el('.open-modal')
 let ButtonCancelModal=el('.btn-cancel')
-let containerMain=el('.content-list')
+let containerMain=el('.content-list') 
 let containerfavoritos=el('.container-favoritos')
 let ButtonAddNote=el('.btn-add')
-
-
+let ButtonLixeira=el('.lixeira')
+let ButtonFavorito=el('.favoritos')
 
 
 type dataList={
@@ -18,50 +18,16 @@ type dataList={
 
 
 let list:dataList[]=[
-    {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
+   /* {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
     {id:2,nome:'André',email:'andre@gmail.com',tel:'32264856'},
     {id:3,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:4,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:5,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:2,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:3,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:4,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:5,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:2,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:3,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:4,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:5,nome:'André',email:'andre@gmail.com',tel:'32264856'},
+ */
 ]
 
 
-let setList=()=>list.map((item,index)=>{
-
- containerMain.innerHTML+=`
-
-<div class="card-ctt">
-<div class="profile">
-        <img src="" id='img-profile' alt="">
-        <span class="name-ctt">${item.nome}</span>
-</div>
-<div class="data">
-    <a  href='mailto:${item.email}' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
-    <a  href='tel:${item.tel} ' class="tel-data"><img src="https://img.icons8.com/material-outlined/24/000000/call-female.png"/></a>
-</div>
-<div class="icons">
-    <a  href=' ' class="email-data"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"/></a>
-    <a  href=' ' class="email-data"> <img src="https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png"/> </a>
-</div>
-</div>
 
 
-`
 
-})
-
-
-setList()
 
 
 
@@ -81,6 +47,25 @@ function addNote(){
                 tel:tel.value
             })
 
+            let newCard=document.createElement('span') as HTMLSpanElement
+
+       newCard.innerHTML= `<div class="card-ctt">
+          <div class="profile">
+                  <img src="" id='img-profile ' alt="">
+                  <span  class="name-ctt">${nome.value}</span>
+          </div>
+          <div class="data">
+              <a  href='maito:${email.value}' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
+              <a  href='tel:${tel.value} ' class="tel-data"><img src="https://img.icons8.com/material-outlined/24/000000/call-female.png"/></a>
+          </div>
+          <div class="icons">
+              <a  href=' ' class="email-data"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"/></a>
+              <a  href=' ' class="email-data"> <img src="https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png"/> </a>
+          </div>
+</div>
+`
+
+containerMain.appendChild(newCard)
             console.log(list);
             
             nome.value =''
@@ -92,14 +77,9 @@ function addNote(){
              containerMain.style.opacity='1.0'
 
 
-            setList()
     }else{
         alert('Preencha todos os campos')
     }
-
-
-
-
 
 
 }
@@ -107,8 +87,11 @@ function addNote(){
 
 
 
+let deleteContact=(event:Event)=>{
 
-
+  
+    
+}
 
 
 let openModal=()=>{
@@ -132,3 +115,4 @@ let closeModal=()=>{
 ButtonStartModal.addEventListener('click',openModal)
 ButtonCancelModal.addEventListener('click',closeModal)
 ButtonAddNote.addEventListener('click',addNote)
+ButtonLixeira.addEventListener('click',deleteContact)

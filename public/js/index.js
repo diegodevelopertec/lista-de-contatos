@@ -6,27 +6,14 @@ var ButtonCancelModal = el('.btn-cancel');
 var containerMain = el('.content-list');
 var containerfavoritos = el('.container-favoritos');
 var ButtonAddNote = el('.btn-add');
+var ButtonLixeira = el('.lixeira');
+var ButtonFavorito = el('.favoritos');
 var list = [
-    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 1, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 2, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 3, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 4, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
-    { id: 5, nome: 'André', email: 'andre@gmail.com', tel: '32264856' },
+/* {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
+ {id:2,nome:'André',email:'andre@gmail.com',tel:'32264856'},
+ {id:3,nome:'André',email:'andre@gmail.com',tel:'32264856'},
+*/
 ];
-var setList = function () { return list.map(function (item, index) {
-    containerMain.innerHTML += "\n\n<div class=\"card-ctt\">\n<div class=\"profile\">\n        <img src=\"\" id='img-profile' alt=\"\">\n        <span class=\"name-ctt\">".concat(item.nome, "</span>\n</div>\n<div class=\"data\">\n    <a  href='mailto:").concat(item.email, "' class=\"email-data\"> <img src=\"https://img.icons8.com/doodle/48/000000/newsletter.png\"/></a>\n    <a  href='tel:").concat(item.tel, " ' class=\"tel-data\"><img src=\"https://img.icons8.com/material-outlined/24/000000/call-female.png\"/></a>\n</div>\n<div class=\"icons\">\n    <a  href=' ' class=\"email-data\"><img src=\"https://img.icons8.com/ios-glyphs/30/000000/delete.png\"/></a>\n    <a  href=' ' class=\"email-data\"> <img src=\"https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png\"/> </a>\n</div>\n</div>\n\n\n");
-}); };
-setList();
 function addNote() {
     var nome = el('.nome');
     var email = el('.email');
@@ -39,6 +26,9 @@ function addNote() {
             email: email.value,
             tel: tel.value
         });
+        var newCard = document.createElement('span');
+        newCard.innerHTML = "<div class=\"card-ctt\">\n          <div class=\"profile\">\n                  <img src=\"\" id='img-profile ' alt=\"\">\n                  <span  class=\"name-ctt\">".concat(nome.value, "</span>\n          </div>\n          <div class=\"data\">\n              <a  href='maito:").concat(email.value, "' class=\"email-data\"> <img src=\"https://img.icons8.com/doodle/48/000000/newsletter.png\"/></a>\n              <a  href='tel:").concat(tel.value, " ' class=\"tel-data\"><img src=\"https://img.icons8.com/material-outlined/24/000000/call-female.png\"/></a>\n          </div>\n          <div class=\"icons\">\n              <a  href=' ' class=\"email-data\"><img src=\"https://img.icons8.com/ios-glyphs/30/000000/delete.png\"/></a>\n              <a  href=' ' class=\"email-data\"> <img src=\"https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png\"/> </a>\n          </div>\n</div>\n");
+        containerMain.appendChild(newCard);
         console.log(list);
         nome.value = '';
         email.value = '';
@@ -46,12 +36,13 @@ function addNote() {
         containerModal.classList.remove('visivel');
         containerModal.classList.add('oculto');
         containerMain.style.opacity = '1.0';
-        setList();
     }
     else {
         alert('Preencha todos os campos');
     }
 }
+var deleteContact = function (event) {
+};
 var openModal = function () {
     if (containerModal.classList.contains('oculto')) {
         containerModal.classList.remove('oculto');
@@ -69,3 +60,4 @@ var closeModal = function () {
 ButtonStartModal.addEventListener('click', openModal);
 ButtonCancelModal.addEventListener('click', closeModal);
 ButtonAddNote.addEventListener('click', addNote);
+ButtonLixeira.addEventListener('click', deleteContact);

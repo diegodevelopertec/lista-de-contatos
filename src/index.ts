@@ -23,10 +23,6 @@ let list:dataList[]=[]
 
 
 
-
-
-
-
 function addNote(){
     let nome=el('.nome') as HTMLInputElement
     let email=el('.email') as HTMLInputElement

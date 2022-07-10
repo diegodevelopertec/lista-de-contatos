@@ -29,6 +29,9 @@ main .container-favoritos{
     background-color: rgba(99, 200, 185, 0.645);
     min-height: 200px;
     padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main .models{
@@ -44,7 +47,7 @@ main .content-list{
     padding: 1%;
     background-color: rgb(102, 166, 167);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 12px;
 }
 .card-ctt .profile img{
@@ -65,6 +68,9 @@ main .content-list{
     width: 20px;
 }
 
+.data{
+    margin-left: 30%;
+}
 
 main  .open-modal{
     display: flex;

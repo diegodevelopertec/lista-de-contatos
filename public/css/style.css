@@ -31,7 +31,12 @@ main .container-favoritos{
     padding: 2%;
 }
 
+main .models{
+    display: none;
+}
+
 main .content-list{
+  
     padding: 10px;
 }
 
@@ -43,8 +48,8 @@ main .content-list{
     margin-bottom: 12px;
 }
 .card-ctt .profile img{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 100%;
     margin-right: 10px;
 }
@@ -57,17 +62,11 @@ main .content-list{
     margin-left: 10px;
 }
 .card-ctt .data a img{
-    width: 30px;
-}
-.content-list .icons a{
-  
-   margin-left: 10px;
-}
-.card-ctt .icons a img{
-    width: 30px;
+    width: 20px;
 }
 
-main .open-modal{
+
+main  .open-modal{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +106,7 @@ main .container-modal .modal{
     top: 10vh;
     border-radius: 10px;
     margin: 5%;
-    min-width: 50vw;
+   width: 600px;
    max-width: 600px;
    padding: 2%;
     background-color: rgb(63, 155, 147);
@@ -119,10 +118,13 @@ main .container-modal .modal{
    justify-content: center;
 }
 #cx-file input{
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     border-radius: 100%;
-   background-color: #eee ;
+   background-image: url(/public/img/user.png);
+   background-repeat: none;
+   background-size: cover;
+background-color: rgb(179, 233, 230);
      font-size: 0;
 }
 
@@ -137,10 +139,12 @@ main .container-modal .modal{
     background-color: #eee;
     text-align: center;
     width: auto;
+    width: 70px;
 
 }
 .container-modal .modal #cx-inputs input{
     width: 100%;
+    padding: 1%;
 }
 
 .container-modal .modal #cx-buttons{
@@ -176,15 +180,23 @@ background-color: green;
     main{
         width: 100vw;
     }
+    main .open-modal{
+    top:90vh;
+    }
+    main .container-modal  .modal{
+      width: 90vw;
+    }
     
 }
+
 @media screen  and (max-width:300px){
-    
-   .card-ctt{
    
-    font-size: 12px;
-   }
-   .cx-ctt img{
-    width: 20px;
-   }
-}
+    .card-ctt{
+    
+     font-size: 12px;
+    }
+    .cx-ctt img{
+     width: 20px;
+    }
+    
+ }

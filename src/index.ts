@@ -1,12 +1,13 @@
-let el=(e:string)=>document.querySelector(e) as HTMLElement
-let containerModal=el('.container-modal')
-let ButtonStartModal=el('.open-modal')
-let ButtonCancelModal=el('.btn-cancel')
-let containerMain=el('.content-list') 
-let containerfavoritos=el('.container-favoritos')
-let ButtonAddNote=el('.btn-add')
-let ButtonLixeira=el('.lixeira')
-let ButtonFavorito=el('.favoritos')
+let el=(e:string)=>document.querySelector(e) 
+let containerModal=el('.container-modal') as HTMLDivElement
+let ButtonStartModal=el('.open-modal')   as HTMLButtonElement
+let ButtonCancelModal=el('.btn-cancel') as HTMLButtonElement
+let containerMain=el('.content-list') as HTMLDivElement
+let containerfavoritos=el('.container-favoritos') as HTMLDivElement
+let ButtonAddNote=el('.btn-add') as HTMLLinkElement
+let fileInput=el('.img-file') as HTMLInputElement
+
+
 
 
 type dataList={
@@ -17,12 +18,7 @@ type dataList={
 }
 
 
-let list:dataList[]=[
-   /* {id:1,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:2,nome:'André',email:'andre@gmail.com',tel:'32264856'},
-    {id:3,nome:'André',email:'andre@gmail.com',tel:'32264856'},
- */
-]
+let list:dataList[]=[]
 
 
 
@@ -51,17 +47,14 @@ function addNote(){
 
        newCard.innerHTML= `<div class="card-ctt">
           <div class="profile">
-                  <img src="" id='img-profile ' alt="">
+                  <img src="/public/img/user.png" id='img-profile ' alt="">
                   <span  class="name-ctt">${nome.value}</span>
           </div>
           <div class="data">
-              <a  href='maito:${email.value}' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
+              <a  href='mailto:${email.value}' class="email-data"> <img src="https://img.icons8.com/doodle/48/000000/newsletter.png"/></a>
               <a  href='tel:${tel.value} ' class="tel-data"><img src="https://img.icons8.com/material-outlined/24/000000/call-female.png"/></a>
           </div>
-          <div class="icons">
-              <a  href=' ' class="email-data"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"/></a>
-              <a  href=' ' class="email-data"> <img src="https://img.icons8.com/ios-glyphs/60/000000/add-to-favorites.png"/> </a>
-          </div>
+         
 </div>
 `
 
@@ -86,14 +79,6 @@ containerMain.appendChild(newCard)
 
 
 
-
-let deleteContact=(event:Event)=>{
-
-  
-    
-}
-
-
 let openModal=()=>{
     if(containerModal.classList.contains('oculto')){
         containerModal.classList.remove('oculto')
@@ -115,4 +100,3 @@ let closeModal=()=>{
 ButtonStartModal.addEventListener('click',openModal)
 ButtonCancelModal.addEventListener('click',closeModal)
 ButtonAddNote.addEventListener('click',addNote)
-ButtonLixeira.addEventListener('click',deleteContact)
